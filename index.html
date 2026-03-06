@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axata Loading Screnn</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --ios-blue: #0A84FF;
+            --ios-bg: #000000;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background: var(--ios-bg); color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            overflow: hidden; display: flex; justify-content: center; align-items: center;
+        }
+
+        #particles-js {
+            position: absolute; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #111 0%, #000 100%);
+            z-index: 0;
+        }
+
+        .main-wrapper {
+            position: relative; z-index: 10; width: 90%; max-width: 400px;
+            text-align: center; animation: iosAppear 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .video-container {
+            width: 100%; aspect-ratio: 16/9;
+            background: var(--glass);
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);
+            overflow: hidden; position: relative;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            margin-bottom: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .video-container video {
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .app-info h1 {
+            font-size: 28px; font-weight: 700; margin: 0;
+            background: linear-gradient(to bottom, #fff, #888);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .app-info p {
+            font-size: 14px; color: #8e8e93; margin: 8px 0 25px;
+            letter-spacing: 0.3px;
+        }
+
+        .ios-loader {
+            display: inline-block; position: relative;
+            width: 40px; height: 40px; margin-bottom: 15px;
+        }
+        .ios-loader div {
+            transform-origin: 20px 20px; animation: ios-loader 1.2s linear infinite;
+        }
+        .ios-loader div:after {
+            content: " "; display: block; position: absolute;
+            top: 3px; left: 18px; width: 3px; height: 10px;
+            border-radius: 20%; background: #fff;
+        }
+        .ios-loader div:nth-child(1) { transform: rotate(0deg); animation-delay: -1.1s; }
+        .ios-loader div:nth-child(2) { transform: rotate(30deg); animation-delay: -1s; }
+        .ios-loader div:nth-child(3) { transform: rotate(60deg); animation-delay: -0.9s; }
+        .ios-loader div:nth-child(4) { transform: rotate(90deg); animation-delay: -0.8s; }
+        .ios-loader div:nth-child(5) { transform: rotate(120deg); animation-delay: -0.7s; }
+        .ios-loader div:nth-child(6) { transform: rotate(150deg); animation-delay: -0.6s; }
+        .ios-loader div:nth-child(7) { transform: rotate(180deg); animation-delay: -0.5s; }
+        .ios-loader div:nth-child(8) { transform: rotate(210deg); animation-delay: -0.4s; }
+        .ios-loader div:nth-child(9) { transform: rotate(240deg); animation-delay: -0.3s; }
+        .ios-loader div:nth-child(10) { transform: rotate(270deg); animation-delay: -0.2s; }
+        .ios-loader div:nth-child(11) { transform: rotate(300deg); animation-delay: -0.1s; }
+        .ios-loader div:nth-child(12) { transform: rotate(330deg); animation-delay: 0s; }
+
+        @keyframes ios-loader { 0% { opacity: 1; } 100% { opacity: 0; } }
+        @keyframes iosAppear { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        .ios-swal-popup {
+            border-radius: 18px !important;
+            padding: 20px !important;
+            background: rgba(30, 30, 30, 0.8) !important;
+            backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        .ios-swal-title { color: white !important; font-size: 18px !important; font-weight: 600 !important; }
+        .ios-swal-html { color: #ccc !important; font-size: 14px !important; }
+
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="main-wrapper" id="content">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="https://files.catbox.moe/kv1tm7.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="app-info">
+            <h1>Axata</h1>
+            <p>Axata Apps, Made By hmmodz</p>
+            
+            <div class="ios-loader">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            }
+        });
+
+        setTimeout(() => {
+            const content = document.getElementById('content');
+            content.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            content.style.opacity = '0.3';
+            content.style.transform = 'scale(0.95)';
+
+            Swal.fire({
+                title: 'Auth To Server Axata...',
+                html: 'Memasuki Server Axata Dalam <b></b>',
+                timer: 4000,
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'ios-swal-popup',
+                    title: 'ios-swal-title',
+                    htmlContainer: 'ios-swal-html'
+                },
+                didOpen: () => {
+                    Swal.showLoading();
+                    const b = Swal.getHtmlContainer().querySelector('b');
+                    const timerInterval = setInterval(() => {
+                        b.textContent = Math.ceil(Swal.getTimerLeft() / 1000) + 's';
+                    }, 100);
+                }
+            }).then(() => {
+                document.body.style.opacity = '0';
+                document.body.style.transition = '0.8s';
+                setTimeout(() => {
+                    window.location.href = "https://home-by-hmmodz.vercel.app/";
+                }, 800);
+            });
+        }, 3500);
+    </script>
+</body>
+</html>
